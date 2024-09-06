@@ -1,0 +1,126 @@
+<html>
+<head>
+    <title>Length</title>
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background-color: rgb(24, 23, 23);
+    }
+    input{ background-color: darkgoldenrod;
+        color:
+    border-top-color: black;
+    border-bottom-color: black;
+   border-width: thick;
+border-color: darkred;
+}
+   input:hover{
+
+    background-color: rgb(161, 12, 236);
+    border:3px groove rgb(16, 1, 61);
+   }
+
+   select{
+
+    background-color: rgb(201, 69, 20);
+    border-width: medium;
+    border-collapse: inherit;
+    border-color: rgb(4, 4, 240);
+   }
+   select:hover{
+    background-color: rgb(248, 33, 0);
+    border:3px wavy rgb(158, 180, 196) ;
+   }
+   button{
+    background-color: rgb(2, 242, 250);
+    text-decoration-color: rgb(2, 242, 250);
+    transition: ease-in-out;
+    border ls ease-in- out.2s;
+   }
+   button:hover{
+    background-color: darkred;
+    border:3px groove rgb(25, 5, 84);
+   }
+   p{color:blueviolet;}
+   span{color: rgb(165, 156, 156);}
+   h1{
+    color: rgb(212, 64, 138); 
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+     text-shadow: 0vmax ;
+    font-color:white; 
+
+   }
+h1:hover{
+    color: rgb(144, 149, 149);
+    transition: ;
+}
+
+.container{
+    background-color:turquoise;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    width: 100%;
+}
+</style>
+
+</head>
+<body>
+    <center>
+        
+        <h1>Unit Converter</h1>
+        <div class="container">
+            <input type="number" id="unitamount" placeholder="Enter any Value">
+            <select id="unitfrom">
+                <option value="mm">Millimeteres</option>
+                <option value="cm">Centimeteres</option>
+                <option value="m">Meteres</option>
+                <option value="km">Kilometeres</option>    
+            </select>
+            
+            <select id="unitto">
+                <option value="mm">Millimeteres</option>
+                <option value="cm">Centimeteres</option>
+                <option value="m">Meteres</option>
+                <option value="km">Kilometeres</option>    
+            </select>
+            <button onclick="convertUnit()">Convert</button>
+                <p align ="center">Converted Value is:<span id="unitresult"><input type="text"></span></p>
+                </div>
+
+                    <script>
+                        function convertUnit()
+                        {
+                         
+                        const amount=parseFloat(document.getElementById('unitamount').value);
+                        const unitfrom=document.getElementById('unitfrom').value;
+                        const unitto=document.getElementById('unitto').value;
+                        
+                            const conversionRates=
+                            {
+                            mm:{mm:1,      cm:0.1,    m:0.001,  km:0.000001},
+                            cm:{mm:10,     cm:1,      m:0.01,  km:0.00001},
+                            m:{mm:1000,     cm:100,    m:1,     km:0.001},
+                            km:{mm:1000000, cm:100000,m:1000,  km:1}
+
+                            };
+                    if(!isNaN(amount))
+                    {
+                        const result = amount * conversionRates[unitfrom][unitto];
+                        document.getElementById('unitresult').innerText = result + ' ' + unitto;
+                    }
+                    else
+                    {
+                        document.getElementById('unitresult').innerText ='Invalid Amount';
+
+                    }
+                }
+         
+                      </script>
+        </center>
+</body>
+</html>
